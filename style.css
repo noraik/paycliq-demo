@@ -127,8 +127,6 @@ main {
 }
 
 .home-content {
-  background-image: url("./asset/image/bg-gird-pattern-repeat-alt.webp");
-  background-repeat: repeat;
   max-width: 1440px;
   width: 100%;
   min-height: 100dvh;
