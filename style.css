@@ -33,6 +33,8 @@
   --dark-purple: #62364b;
   --orange: #ec691e;
   --white: #fff;
+  --off-white: #f8f9fa;
+  --gray: rgb(247, 247, 247);
   --border-radius: 12px;
   --box-shadow: 1px 0px 9px 2px rgba(0, 0, 0, 0.07);
   --box-shadow-purple: 1px 0px 9px 2px #ac38701e;
@@ -51,6 +53,7 @@ body {
   font-family: var(--cRegular);
 }
 
+/* Navbar starts */
 .navbar {
   width: 100%;
   padding: 0 10px;
@@ -107,7 +110,7 @@ body {
 }
 
 .navbar-content ul li a::before {
-  content: '';
+  content: "";
   width: 100%;
   border-bottom: 2px solid var(--orange);
   position: absolute;
@@ -123,16 +126,18 @@ body {
 .navbar-content ul li a:hover::before {
   transform: translateX(0);
 }
-
+/* Navbar ends */
 main {
   width: 100%;
   margin-top: 82px;
 }
 
+/* Home section starts */
 #home {
   width: 100%;
   padding: 0 10px;
   position: relative;
+  overflow: hidden;
 }
 
 #home::before {
@@ -143,12 +148,13 @@ main {
   left: 0;
   bottom: 0;
   background-color: #ec691e1d;
+  z-index: -1;
 }
 
 .home-content {
+  min-height: 100dvh;
   max-width: 1440px;
   width: 100%;
-  min-height: 100dvh;
   margin: 0 auto;
   padding: 20px 30px;
   display: grid;
@@ -174,9 +180,9 @@ main {
   background-color: var(--white);
   padding: 10px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 8px;
-  bottom: -20px;
+  bottom: -10px;
   right: -10%;
   box-shadow: var(--box-shadow-purple);
   color: #753f59;
@@ -191,7 +197,16 @@ main {
   max-width: 85%;
 }
 
-.home-content .text-side h1 .style {
+.home-content .text-side .detail {
+  font-size: 18px;
+  margin-top: 20px;
+  color: var(--dark-purple);
+  font-family: var(--cRegular);
+}
+/* Home section ends */
+
+/* Reused Components starts*/
+.style {
   background-image: linear-gradient(
     129deg,
     var(--dark-purple) 20%,
@@ -203,20 +218,13 @@ main {
   display: inline;
 }
 
-.home-content .text-side .detail {
-  font-size: 18px;
-  margin-top: 20px;
-  color: var(--dark-purple);
-  font-family: var(--cRegular);
-}
-
 .bg-button {
-  width: 60%;
+  width: 50%;
   margin-top: 30px;
-  padding: 15px 20px;
+  padding: 20px 20px;
   border: none;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--dark-purple);
   border-radius: var(--border-radius);
   cursor: pointer;
   font-family: var(--cSemiBold);
@@ -224,6 +232,7 @@ main {
   transition: 500ms ease-in-out;
   overflow: hidden;
   z-index: 0;
+  font-size: 20px;
 }
 
 .bg-button p {
@@ -232,18 +241,18 @@ main {
 }
 
 .bg-button::before {
-  content: "Register your business";
+  content: "";
   -webkit-text-fill-color: transparent;
-  width: 90%;
-  padding: 15px 20px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   border-radius: var(--border-radius);
   top: 0;
   left: 0;
   background-image: linear-gradient(
     129deg,
-    var(--dark-purple) 20%,
-    var(--orange)
+    var(--orange) 20%,
+    var(--dark-purple)
   );
   transform: translateX(-100%);
   transition: 500ms ease-in-out;
@@ -253,3 +262,170 @@ main {
 .bg-button:hover::before {
   transform: translateX(0);
 }
+
+/* Reused Components ends*/
+
+/* Partner Section starts */
+#partners {
+  width: 100%;
+  padding: 0 30px;
+}
+
+.partners-content {
+  max-width: 1440px;
+  width: 100%;
+  margin: -30px auto 0;
+  padding: 20px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background: var(--gray);
+}
+
+.partners-content h1 {
+  text-align: center;
+  margin: 50px;
+  color: var(--dark-purple);
+  font-size: 50px;
+}
+
+.partners-content .partners-container {
+  display: flex;
+  flex: 1fr;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.partners-content .partners-container div {
+  width: 140px;
+  margin: 0 auto;
+  height: 120px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.151);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-purple);
+  margin-bottom: 50px;
+}
+
+.partners-content .partners-container div img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Partner Section ends */
+#features {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 20px;
+}
+
+.features-content {
+  max-width: 1440px;
+  width: 100%;
+  padding: 20px 0;
+  background: var(--white);
+  color: var(--dark-purple);
+}
+
+.features-content .header {
+  text-align: center;
+  margin: 50px;
+  color: var(--dark-purple);
+  font-size: 50px;
+}
+
+.features-content .feature {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.features-content .feature .text-side,
+.features-content .feature .image-side {
+  max-width: 550px;
+  width: 100%;
+}
+
+.features-content .feature .image-side img {
+  width: 100%;
+  height: 100%;
+}
+
+.features-content .feature .text-side .head {
+  font-family: var(--cRegular);
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.features-content .feature .text-side .detail {
+  font-size: 18px;
+  color: black;
+}
+
+.features-content .feature .text-side .feature-list {
+  margin-top: 20px;
+  list-style: circle;
+}
+
+.features-content .feature .text-side .feature-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  max-width: 500px;
+  width: 100%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.151);
+  padding: 10px 0 10px;
+}
+/* Features Section ends */
+
+/* Footer Starts */
+footer {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 20px;
+  background-color: #753f59;
+}
+
+.footer-content {
+  max-width: 1440px;
+  width: 100%;
+  padding: 30px 0;
+  color: var(--white);
+}
+
+.footer-content .link-section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-content .link-section .link h1,
+.footer-content .link-section .contact h1 {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.footer-content .link-section .link li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footer-content .link-section .link li a:hover {
+  border-bottom: 1px solid;
+}
+
+.footer-content .link-section .link li a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-content .link-section .contact a {
+  text-decoration: none;
+  color: var(--white);
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.footer-content .link-section .contact a:hover {
+  border-bottom: 1px solid;
+}
+/* Footer Ends */
